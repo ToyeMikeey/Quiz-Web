@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="quizweb.css">
+</head>
+
+<body>
+    <nav>
+        <img src="menu.png" alt="" class="menu-btn">
+        <div class="nav1">
+            <img src="exam.png" alt="Logo">
+            <a href="#" onclick="showHome()">WIZQUEST</a>
+        </div>
+        <div class="nav2">
+            <a href="#" onclick="showHome()">HOME</a>
+            <a href="#">ABOUT</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">SERVICES</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showSignIn()">Take Test</a>
+                    <a href="#">Read Blog</a>
+                    <a href="#">Practice Quiz</a>
+                </div>
+            </div>
+            <a href="#">CONTACT US</a>
+        </div>
+        <div class="nav3">
+            <button onclick="showSignIn()">LOGIN</button>
+            <div class="search">
+                <input type="search" id="searchicon" placeholder="Search...">
+                <img src="loupe.png" alt="Search Icon">
+            </div>
+        </div>
+    </nav>
+
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <p>Chat with us!</p>
+            <button onclick="closeChat()">x</button>
+        </div>
+        <div class="chatbot-body">
+            <p>Welcome! How can I assist you?</p>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" placeholder="Type a message...">
+            <button>Send</button>
+        </div>
+    </div>
+    <button class="chatbot-toggle" id="chatbotToggle" onclick="openChat()">HELP!</button>
+
+    <div class="body1" id="body1">
+        <h1>Exams and Quizzes from a new angle</h1>
+        <h2>Worry less! <br>If you want to explore multiple subjects in greater depth leading up to your final exam,
+            then you're on the right track. We offer in-depth studying of your preferred courses.</h2>
+        <div class="body1bttn">
+            <button id="signquiz" onclick="showSignUp()">Sign Up for WizQuest</button>
+            <button id="testcode" onclick="showSignIn()">I have my test code</button>
+        </div>
+    </div>
+    <div class="page1" id="page1">
+        <div class="grad">
+            <img src="graduate.png" alt="">
+            <p>We are committed to providing world-class assistance with excellence and equity to empower each student
+                to reach his or her highest academic potential.</p>
+        </div>
+        <div class="certi">
+            <img src="approved.png" alt="">
+            <p>Our team of certified tutors ensures that you receive the highest quality of educational support.</p>
+        </div>
+        <div class="studs">
+            <img src="students.png" alt="">
+            <p>Join our platform to engage in collaborative and group study sessions with friends, enhancing your
+                learning experience.</p>
+        </div>
+        <div class="bulb">
+            <img src="light-bulb.png" alt="">
+            <p>Our users consistently see a minimum of a 30% increase in their grades after utilizing our resources and
+                support.</p>
+        </div>
+    </div>
+    <div class="newsletter" id="newsletter">
+        <h1>Get the latest news and updates on our platform, including new features and courses</h1>
+        <div class="mailnews">
+            <input type="search" placeholder="Enter your e-mail" id="mailsubmit">
+            <button id="subbutton">Subscribe</button>
+        </div>
+    </div>
+    <div class="page2" id="page2">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7912.846056153205!2d3.9142430000000004!3d7.4183460000000006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10398dabeb6d5411%3A0xd8b9a81a25f94712!2sLarva%20Coding%20Academy!5e0!3m2!1sen!2sng!4v1719823999223!5m2!1sen!2sng"
+            width="800" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="contactus">
+            <h1>Contact Us</h1>
+            <div class="phone">
+                <img src="phone-call.png" alt="">
+                <a href="tel: 07087915292">07087915292</a> <a href="tel: 08030601389">08030601389</a>
+            </div>
+            <div class="location">
+                <img src="location.png" alt="">
+                <a href="https://maps.app.goo.gl/HBSPmn8cHfoMkDDD6">5 Akinsehinwa Street, off Favos Bus stop, beside
+                    Adis hotel, New Bodija, Ibadan 200212, Oyo</a>
+            </div>
+            <div class="mail">
+                <img src="email.png" alt="">
+                <a href="mailto: toyeadeeye@gmail.com">toyeadeleye@gmail.com</a>
+            </div>
+            <div class="socials">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="signin-form" id="signinForm" style="display: none;">
+        <h2>Sign In</h2>
+        <form onsubmit="showQuiz(event)">
+            <label for="name">First Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="organisation">Last Name</label>
+            <input type="text" id="organisation" name="organisation" required>
+            <label for="test">Test:</label>
+            <select id="test" name="test">
+                <option value="ielts">IELTS</option>
+                <option value="sat">SAT</option>
+                <option value="jamb">JAMB</option>
+                <option value="aviation">AVIATION</option>
+            </select>
+            <label for="examNumber">Exam Number:</label>
+            <input type="text" id="examNumber" name="examNumber" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="quizSection" style="display: none;">
+        <div id="timersec">Time Left: <span id="timer">15:00</span></div>
+        <div id="quizContainer"></div>
+        <div id="pagination"></div>
+        <div class="quizbuttons">
+            <button id="prevButton" onclick="prevPage()">Previous</button>
+            <button id="nextButton" onclick="nextPage()">Next</button>
+            <button onclick="submitQuiz()" id="submit-quiz">Submit</button>
+        </div>
+    </div>
+
+    <div id="quizResult"></div>
+
+    <div class="signup-form" id="signupForm" style="display: none;">
+        <h2>Sign Up</h2>
+        <form onsubmit="return validateSignUpForm()">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+            <label for="nationality">Nationality:</label>
+            <input type="text" id="nationality" name="nationality" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Set Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <p id="error-message" style="display: none;">Passwords do not match.</p>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script src="quizweb.js"></script>
+</body>
+
+</html>
